@@ -1,7 +1,7 @@
 FROM java:openjdk-8-jdk
 
-ENV hadoop_ver 2.6.1
-ENV spark_ver 1.5.2
+ENV hadoop_ver 2.7.7
+ENV spark_ver 2.2.2
 
 # Get Hadoop from US Apache mirror and extract just the native
 # libs. (Until we care about running HDFS with these containers, this
@@ -16,13 +16,13 @@ RUN mkdir -p /opt && \
 # Get Spark from US Apache mirror.
 RUN mkdir -p /opt && \
     cd /opt && \
-    curl http://www.us.apache.org/dist/spark/spark-${spark_ver}/spark-${spark_ver}-bin-hadoop2.6.tgz | \
+    curl http://www.us.apache.org/dist/spark/spark-${spark_ver}/spark-${spark_ver}-bin-hadoop2.7.tgz | \
         tar -zx && \
-    ln -s spark-${spark_ver}-bin-hadoop2.6 spark && \
+    ln -s spark-${spark_ver}-bin-hadoop2.7 spark && \
     echo Spark ${spark_ver} installed in /opt
 
 # Add the GCS connector.
-RUN cd /opt/spark/lib && \
+RUN cd /opt/spark/jars && \
     curl -O https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-latest-hadoop2.jar
 
 # if numpy is installed on a driver it needs to be installed on all

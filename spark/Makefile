@@ -7,11 +7,11 @@ push: push-spark push-zeppelin
 # Hadoop libs at that point (we grab the 2.6.1 libs, which are
 # appropriate for 1.5.2-with-2.6). Note that you'll need to re-test
 # Zeppelin (and it may not have caught up to newest Spark).
-TAG = 1.5.2_v1
+TAG = 2.2.2_v1
 
 # To bump the Zeppelin version, bump the version in
 # zeppelin/Dockerfile and bump this tag and reset to v1.
-ZEPPELIN_TAG = v0.5.6_v1
+ZEPPELIN_TAG = v0.8_v1
 
 spark:
 	docker build -t gcr.io/google_containers/spark .
@@ -23,16 +23,16 @@ zeppelin-build:
 	docker tag -f gcr.io/google_containers/zeppelin-build gcr.io/google_containers/zeppelin-build:$(ZEPPELIN_TAG)
 
 zeppelin:
-	docker build -t gcr.io/google_containers/zeppelin zeppelin
-	docker tag -f gcr.io/google_containers/zeppelin gcr.io/google_containers/zeppelin:$(ZEPPELIN_TAG)
+	docker build -t yudhiwidyatama/zeppelin zeppelin
+	docker tag -f yudhiwidyatama/zeppelin yudhiwidyatama/zeppelin:$(ZEPPELIN_TAG)
 
 push-spark: spark
-	gcloud docker push gcr.io/google_containers/spark
-	gcloud docker push gcr.io/google_containers/spark:$(TAG)
+	gcloud docker push yudhiwidyatama/spark
+	gcloud docker push yudhiwidyatama/spark:$(TAG)
 
 push-zeppelin: zeppelin
-	gcloud docker push gcr.io/google_containers/zeppelin
-	gcloud docker push gcr.io/google_containers/zeppelin:$(ZEPPELIN_TAG)
+	gcloud docker push yudhiwidyatama/zeppelin
+	gcloud docker push yudhiwidyatama/zeppelin:$(ZEPPELIN_TAG)
 
 clean:
 	docker rmi gcr.io/google_containers/spark:$(TAG) || :
