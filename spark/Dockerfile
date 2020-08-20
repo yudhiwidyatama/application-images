@@ -1,4 +1,4 @@
-FROM java:openjdk-8-jdk
+FROM openjdk:8-jdk-buster
 
 ENV hadoop_ver 2.7.7
 ENV spark_ver 2.2.2
