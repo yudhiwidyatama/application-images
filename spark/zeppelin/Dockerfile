@@ -17,11 +17,11 @@
 
 FROM yudhiwidyatama/spark:buster
 
-ENV ZEPPELIN_VER  0.8.0
+ENV ZEPPELIN_VER  0.8.2
 
 RUN mkdir -p /opt && \
     cd /opt && \
-    curl http://www-eu.apache.org/dist/zeppelin/zeppelin-${ZEPPELIN_VER}/zeppelin-${ZEPPELIN_VER}-bin-netinst.tgz | \
+    curl http://downloads.apache.org/zeppelin/zeppelin-${ZEPPELIN_VER}/zeppelin-${ZEPPELIN_VER}-bin-netinst.tgz | \
         tar -zx && \
     ln -s zeppelin-${ZEPPELIN_VER}-bin-netinst zeppelin && \
     echo Zeppelin ${ZEPPELIN_VER} installed in /opt
