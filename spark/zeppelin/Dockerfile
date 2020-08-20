@@ -15,7 +15,7 @@
 # This image relies on the zeppelin-build image to get the zeppelin
 # binaries built, and the Makefile to put it in this directory.
 
-FROM yudhiwidyatama/spark:latest
+FROM yudhiwidyatama/spark:buster
 
 ENV ZEPPELIN_VER  0.8.0
 
