@@ -16,7 +16,7 @@ RUN mkdir -p /opt && \
 # Get Spark from US Apache mirror.
 RUN mkdir -p /opt && \
     cd /opt && \
-    curl -L http://www.us.apache.org/dist/spark/spark-${spark_ver}/spark-${spark_ver}-bin-hadoop2.7.tgz | \
+    curl -L https://archive.apache.org/dist/spark/spark-${spark_ver}/spark-${spark_ver}-bin-hadoop2.7.tgz | \
         tar -zx && \
     ln -s spark-${spark_ver}-bin-hadoop2.7 spark && \
     echo Spark ${spark_ver} installed in /opt
