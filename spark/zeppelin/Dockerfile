@@ -21,7 +21,7 @@ ENV ZEPPELIN_VER  0.8.2
 
 RUN mkdir -p /opt && \
     cd /opt && \
-    curl http://downloads.apache.org/zeppelin/zeppelin-${ZEPPELIN_VER}/zeppelin-${ZEPPELIN_VER}-bin-netinst.tgz | \
+    curl -L https://downloads.apache.org/zeppelin/zeppelin-${ZEPPELIN_VER}/zeppelin-${ZEPPELIN_VER}-bin-netinst.tgz | \
         tar -zx && \
     ln -s zeppelin-${ZEPPELIN_VER}-bin-netinst zeppelin && \
     echo Zeppelin ${ZEPPELIN_VER} installed in /opt
