@@ -17,7 +17,7 @@
 
 FROM yudhiwidyatama/spark:buster
 
-ENV ZEPPELIN_VER  0.8.2
+ENV ZEPPELIN_VER  0.9.0-preview2
 
 RUN mkdir -p /opt && \
     cd /opt && \
